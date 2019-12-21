@@ -1,0 +1,82 @@
+package nz.net.foobar.pinebook;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
+public class EDID
+{
+    static int[] edid = new int[]{
+            /* Header */
+            0x00, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x00,
+            /* ID Manufacturer Name */
+            0x09, 0xe5,
+            /* ID Product Code */
+            0x37, 0x00,
+            /* 32-bit serial No. */
+            0x00, 0x00, 0x00, 0x00,
+            /* Week of manufacture */
+            0x01,
+            /* Year of manufacture */
+            0x16,
+            /* EDID Structure Ver. */
+            0x01,
+            /* EDID revision # */
+            0x04,
+            /* Video input definition */
+            0x80,
+            /* Max H image size */
+            0x1f,
+            /* Max V image size */
+            0x11,
+            /* Display Gamma */
+            0x78,
+            /* Feature support */
+            0x0a,
+            /* Color bits */
+            0xb0, 0x90, 0x97, 0x58, 0x54, 0x92, 0x26, 0x1d, 0x50, 0x54,
+            /* Established timings */
+            0x00, 0x00, 0x00,
+            /* Standard timings */
+            0x01, 0x01,
+            0x01, 0x01,
+            0x01, 0x01,
+            0x01, 0x01,
+            0x01, 0x01,
+            0x01, 0x01,
+            0x01, 0x01,
+            0x01, 0x01,
+            /* Detailed timing/monitor descriptor #1 */
+            0x3e, 0x1c, 0x56, 0xa0, 0x50, 0x00, 0x16, 0x30,
+            0x30, 0x20, 0x36, 0x00, 0x35, 0xad, 0x10, 0x00,
+            0x00, 0x1a,
+            /* Detailed timing/monitor descriptor #2 */
+            0x3e, 0x1c, 0x56, 0xa0, 0x50, 0x00, 0x16, 0x30,
+            0x30, 0x20, 0x36, 0x00, 0x35, 0xad, 0x10, 0x00,
+            0x00, 0x1a,
+            /* Detailed timing/monitor descriptor #3 */
+            0x00, 0x00, 0x00, 0xfe, 0x00, 0x42, 0x4f, 0x45,
+            0x20, 0x48, 0x46, 0x0a, 0x20, 0x20, 0x20, 0x20,
+            0x20, 0x20,
+            /* Detailed timing/monitor descriptor #4 */
+            0x00, 0x00, 0x00, 0xfe, 0x00, 0x48, 0x42, 0x31,
+            0x34, 0x30, 0x57, 0x58, 0x31, 0x2d, 0x35, 0x30,
+            0x31, 0x0a,
+            /* Extension flag */
+            0x00,
+            /* Checksum */
+            0x81
+    };
+
+
+    public static void main(String[] args) throws IOException
+    {
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream(edid.length);
+
+        for (int i =0; i < edid.length; i++)
+        {
+            baos.write(edid[i]);
+        }
+
+        baos.writeTo(System.out);
+    }
+}
