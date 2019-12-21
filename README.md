@@ -6,7 +6,8 @@ Generate EDID firmware for the early 14" pinebook model with the 1366x768 panel 
 Compile and generate the file.
 
 ```bash
-java -cp out/production/pinebook.edid nz.net.foobar.pinebook.EDID > pinebook.edid.bin
+javac -d out src/nz/net/foobar/pinebook/EDID.java
+java -cp out nz.net.foobar.pinebook.EDID > pinebook.edid.bin
 ```
 
 Copy the file to `/lib/firmare/edid`.
