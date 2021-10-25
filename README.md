@@ -1,3 +1,10 @@
+# Update
+
+This EDID is now included as a DTS overlay `boe-hb140wx1-501`; add the following to `/boot/armbianEnv.txt`:
+
+    overlays=boe-hb140wx1-501
+
+
 # pinebook.edid
 Generate EDID firmware for the early 14" pinebook model with the 1366x768 panel missing its EDID
 
