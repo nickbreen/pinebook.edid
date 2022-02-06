@@ -21,4 +21,5 @@ jobs:
     - name: Build
       run: javac -d out src/nz/net/foobar/pinebook/EDID.java
     - name: Run
-      run: java -cp out nz.net.foobar.pinebook.EDID > pinebook.edid.bin
+      run: java -cp out nz.net.foobar.pinebook.EDID | base64
+      
